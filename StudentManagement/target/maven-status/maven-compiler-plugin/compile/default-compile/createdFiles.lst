@@ -1,0 +1,7 @@
+com\example\UpdateStudentServlet.class
+com\example\DeleteStudentServlet.class
+com\example\HelloServlet.class
+com\example\StudentListServlet.class
+com\example\SearchStudentServlet.class
+com\example\JdbcInsertDemo.class
+com\example\StudentRegisterServlet.class

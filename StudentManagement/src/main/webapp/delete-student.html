@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Delete Student | StudentHub</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1e293b;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 18px 7%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #4f46e5;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #4f46e5;
+        }
+
+        nav a.active {
+            color: #dc2626;
+        }
+
+        /* Main */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+        }
+
+        .delete-card {
+            background: white;
+            width: 100%;
+            max-width: 480px;
+            padding: 38px;
+            border-radius: 16px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+        }
+
+        .icon-box {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #fee2e2;
+            color: #dc2626;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 26px;
+        }
+
+        .warning {
+            background: #fff7ed;
+            border: 1px solid #fed7aa;
+            padding: 15px;
+            border-radius: 9px;
+            color: #9a3412;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 9px;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            margin-bottom: 22px;
+        }
+
+        input:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px #e0e7ff;
+        }
+
+        .delete-btn {
+            width: 100%;
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .delete-btn:hover {
+            background: #b91c1c;
+        }
+
+        .cancel-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #64748b;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .cancel-link:hover {
+            color: #4f46e5;
+        }
+
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 22px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 18px 5%;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            .delete-card {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <a href="index.html" class="logo">
+                🎓 StudentHub
+            </a>
+
+            <nav aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="registration.html">Register</a>
+                <a href="students">Students</a>
+                <a href="search-student.html">Search</a>
+                <a href="update-student.html">Update</a>
+                <a href="delete-student.html"
+                   class="active">Delete</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="delete-card">
+
+            <div class="icon-box" aria-hidden="true">
+                🗑
+            </div>
+
+            <h1>Delete Student</h1>
+
+            <p class="subtitle">
+                Remove a student record from the
+                Student Management System.
+            </p>
+
+            <div class="warning" role="alert">
+                <strong>⚠ Warning!</strong>
+                <p>
+                    This action is permanent.
+                    Deleted student records cannot
+                    be recovered.
+                </p>
+            </div>
+
+            <form action="delete-student"
+                  method="post"
+                  onsubmit="return confirmDelete();">
+
+                <label for="studentId">
+                    Student ID
+                </label>
+
+                <input
+                    type="number"
+                    id="studentId"
+                    name="id"
+                    min="1"
+                    step="1"
+                    placeholder="Enter Student ID"
+                    required
+                >
+
+                <button type="submit"
+                        class="delete-btn">
+                    🗑 Delete Student
+                </button>
+
+            </form>
+
+            <a href="students" class="cancel-link">
+                Cancel — Back to Student List
+            </a>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            &copy; <span id="year">2026</span>
+            StudentHub | Java-Servlet Web Application Project
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        function confirmDelete() {
+            const studentId =
+                document.getElementById("studentId").value;
+
+            return confirm(
+                "Are you sure you want to delete Student ID "
+                + studentId + "?\n\n"
+                + "This action cannot be undone."
+            );
+        }
+    </script>
+
+</body>
+</html>

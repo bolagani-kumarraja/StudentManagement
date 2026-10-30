@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Update Student | StudentHub</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1e293b;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 18px 7%;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            color: #4f46e5;
+            font-size: 24px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #475569;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #4f46e5;
+        }
+
+        /* Main */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+        }
+
+        .update-card {
+            background: white;
+            width: 100%;
+            max-width: 650px;
+            border-radius: 16px;
+            padding: 38px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+        }
+
+        .icon-box {
+            width: 65px;
+            height: 65px;
+            background: #e0e7ff;
+            color: #4f46e5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            background: white;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px #e0e7ff;
+        }
+
+        .helper {
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        .info-box {
+            margin: 22px 0;
+            padding: 14px;
+            background: #eef2ff;
+            border-radius: 8px;
+            color: #3730a3;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .update-btn {
+            width: 100%;
+            padding: 15px;
+            background: #4f46e5;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .update-btn:hover {
+            background: #4338ca;
+        }
+
+        .cancel-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .cancel-link:hover {
+            color: #4f46e5;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 22px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 18px 5%;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            .update-card {
+                padding: 25px 20px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+
+            <a href="index.html" class="logo">
+                🎓 StudentHub
+            </a>
+
+            <nav aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="registration.html">Register</a>
+                <a href="students">Students</a>
+                <a href="search-student.html">Search</a>
+                <a href="update-student.html"
+                   class="active">Update</a>
+                <a href="delete-student.html">Delete</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="update-card">
+
+            <div class="icon-box" aria-hidden="true">
+                ✏️
+            </div>
+
+            <h1>Update Student</h1>
+
+            <p class="subtitle">
+                Edit student information and keep
+                academic records up to date.
+            </p>
+
+            <form action="update-student"
+                  method="post">
+
+                <div class="form-grid">
+
+                    <!-- Student ID -->
+                    <div class="field full-width">
+                        <label for="id">
+                            Student ID
+                        </label>
+
+                        <input
+                            type="number"
+                            id="id"
+                            name="id"
+                            min="1"
+                            step="1"
+                            placeholder="Enter existing Student ID"
+                            required
+                        >
+
+                        <span class="helper">
+                            Enter the ID of the student
+                            you want to update.
+                        </span>
+                    </div>
+
+                    <!-- Student Name -->
+                    <div class="field">
+                        <label for="studentName">
+                            Student Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="studentName"
+                            name="studentName"
+                            minlength="2"
+                            maxlength="100"
+                            placeholder="Full name"
+                            required
+                        >
+                    </div>
+
+                    <!-- Email -->
+                    <div class="field">
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            maxlength="100"
+                            placeholder="student@example.com"
+                            required
+                        >
+                    </div>
+
+                    <!-- Department -->
+                    <div class="field">
+                        <label for="department">
+                            Department
+                        </label>
+
+                        <select
+                            id="department"
+                            name="department"
+                            required
+                        >
+                            <option value="">
+                                Select Department
+                            </option>
+                            <option value="CSE">CSE</option>
+                            <option value="ECE">ECE</option>
+                            <option value="EEE">EEE</option>
+                            <option value="IT">IT</option>
+                            <option value="Mechanical">
+                                Mechanical
+                            </option>
+                        </select>
+                    </div>
+
+                    <!-- Year -->
+                    <div class="field">
+                        <label for="year">
+                            Year of Study
+                        </label>
+
+                        <select
+                            id="year"
+                            name="year"
+                            required
+                        >
+                            <option value="">
+                                Select Year
+                            </option>
+                            <option value="1">Year 1</option>
+                            <option value="2">Year 2</option>
+                            <option value="3">Year 3</option>
+                            <option value="4">Year 4</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="info-box">
+                    ℹ️ Enter the existing Student ID and
+                    provide all the updated details.
+                    All fields are required.
+                </div>
+
+                <button type="submit"
+                        class="update-btn">
+                    Save Changes
+                </button>
+
+            </form>
+
+            <a href="students" class="cancel-link">
+                Cancel — Back to Student List
+            </a>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            &copy; <span id="year">2026</span>
+            StudentHub | Java-Servlet Web Application Project
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
