@@ -16,12 +16,6 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/update-student")
 public class UpdateStudentServlet extends HttpServlet {
 
-    private static final String URL =
-            "jdbc:mysql://localhost:3306/student_db";
-
-    private static final String USER = "root";
-    private static final String PASSWORD = "root";
-
     @Override
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response)
@@ -85,8 +79,7 @@ public class UpdateStudentServlet extends HttpServlet {
                         Class.forName("com.mysql.cj.jdbc.Driver");
 
                         try (Connection con =
-                                     DriverManager.getConnection(
-                                             URL, USER, PASSWORD);
+                                     DBConnection.getConnection();
                              PreparedStatement ps =
                                      con.prepareStatement(sql)) {
 
